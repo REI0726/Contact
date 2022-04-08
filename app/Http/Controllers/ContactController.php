@@ -17,12 +17,9 @@ class ContactController extends Controller
         $this->validate($request, Contact::$rules);
         $Contact = new Contact;
         $form = $request->all();
-        return view('contact.create', [
-            'inputs' => $inputs,
+        return view('create',[
+            'inputs'=>$form,
         ]);
-        unset($form['_token_']);
-        $Contact->fill($form)->save();
-        return redirect('contact.create');
     }
     public function submit(Request $request){
         $this->validate($request, Contact::$rules);
