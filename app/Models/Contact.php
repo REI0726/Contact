@@ -9,9 +9,13 @@ class Contact extends Model
 {
      use HasFactory;
 
-    protected $guarded = array('id');
+    protected $guarded =array('id');
+   
 
     public static $rules = array(
-        'content' => 'required|max:20',
+        'name' => 'required',
+        'age' => 'integer|min:0|max:150',
+        'nationality' => 'required',
+        'content' => 'required',
     );
 }

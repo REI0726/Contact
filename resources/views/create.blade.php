@@ -8,8 +8,14 @@
   <link rel="stylesheet" href="{{asset('/assets/css/reset.css')}}" />
   <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
 </head>
+
 <body>
-  
+  <div class="container">
+    <div class="card">
+      <p class="title mb-15">お問い合わせ</p>
+      <div class="contact">
+        <form action="{{route('contact.thanks')}}" method="post" class="flex between mb-30">
+          @csrf
   <table>
     @foreach($items as $item)
           <tr>
@@ -38,16 +44,12 @@
           </tr>
           <tr>
             <th>ご意見</th>
-              <form action="{{ route('contact.submit', ['id' => $item->id]) }}" method="post">
-              @csrf
-                <td>
-                  <input type="text" class="input-submit" value="{{ $item->content }}" name="content" />
-                </td>
-                </form>
-                <td>
-                <button class="button-submit">送信</button>
-              </td>
+            <td>
+              {{ $item->content }}
+            </td>
           </tr>
+      @endforeach
+          <button class="button-submit">送信</button>
           <tr>
               <form action="{{ route('contact.delete', ['id' => $item->id]) }}" method="post">
                 @csrf
@@ -55,7 +57,10 @@
               </form>
           </tr>
 
-          @endforeach
         </table>
+      </div>
+    </form>
+    </div>
+  </div>
 </body>
 </html>

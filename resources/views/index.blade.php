@@ -21,9 +21,9 @@
       </ul>
       @endif
       <div class="contact">
-        <form action="/contact/create" method="post" class="flex between mb-30">
+        <form action="{{route('contact.create')}}" method="post" class="flex between mb-30">
+          @csrf
           <table>
-      @csrf
       <tr>
         <th>名前</th>
         <td>
@@ -45,7 +45,7 @@
       <tr>
         <th>ご意見</th>
         <td>
-          <input type="text"style="width: 300px; height: 60px;" class="input-add" name="content" />
+          <input type="text" style="width: 300px; height: 60px;" class="input-add" name="content" />
         </td>
       </tr>
       <tr>
