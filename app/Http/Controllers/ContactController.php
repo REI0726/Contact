@@ -18,7 +18,7 @@ class ContactController extends Controller
         $Contact = new Contact;
         $form = $request->all();
         return view('create',[
-            'items'=>$form,
+            'item'=>$form,
         ]);
     }
     public function submit(Request $request){

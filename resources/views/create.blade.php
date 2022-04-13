@@ -14,50 +14,46 @@
     <div class="card">
       <p class="title mb-15">お問い合わせ</p>
       <div class="contact">
-        <form action="{{route('contact.thanks')}}" method="post" class="flex between mb-30">
+        <form action="{{ route('contact.submit') }}" method="post" class="flex between mb-30">
           @csrf
   <table>
-    @foreach($items as $item)
+  
           <tr>
             <th>名前</th>
             <td>
-              {{ $item->name }}
+              {{ $item['name'] }}
             </td>
           </tr>
           <tr>
             <th>年齢</th>
             <td>
-              {{ $item->age }}
+            {{ $item['age'] }}
             </td>
           </tr>
           <tr>
             <th>出身国</th>
             <td>
-              {{ $item->nationality }}
+              {{ $item['nationality'] }}
             </td>
           </tr>
           <tr>
             <th>作成日</th>
             <td>
-              {{ $item->created_at }}
+              {{ $item['registered_at'] }}
             </td>
           </tr>
           <tr>
             <th>ご意見</th>
             <td>
-              {{ $item->content }}
+              {{ $item['content'] }}
             </td>
           </tr>
-      @endforeach
-          <button class="button-submit">送信</button>
-          <tr>
-              <form action="{{ route('contact.delete', ['id' => $item->id]) }}" method="post">
-                @csrf
-                <button class="button-delete">削除</button>
-              </form>
-          </tr>
+      </table>
+          <button type="submit" class="button-submit">送信</button>
 
-        </table>
+          <a href="javascript:history.back('contact.index');">戻る</a>
+
+        
       </div>
     </form>
     </div>

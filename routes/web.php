@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,9 @@ Route::post('/contact/create', [ContactController::class, 'create'])->name('cont
 Route::post('/contact/submit', [ContactController::class, 'submit'])->name('contact.submit');
 Route::post('/contact/delete', [ContactController::class, 'delete'])->name('contact.delete');
 Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+
+Route::prefix('management')->group(function () {//以下を追記
+    Route::get('/management', [ManagementController::class, 'index']);
+    Route::get('/management/add', [ManagementController::class, 'add']);
+    Route::post('/management/add', [ManagementController::class, 'create']);
+});
