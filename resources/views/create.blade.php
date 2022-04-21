@@ -17,11 +17,12 @@
         <form action="{{ route('contact.submit') }}" method="post" class="flex between mb-30">
           @csrf
   <table>
-  
+
           <tr>
             <th>名前</th>
             <td>
-              {{ $item['name'] }}
+            {{ $item['name'] }}
+              <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['name'] }}">
             </td>
           </tr>
           <tr>
@@ -53,7 +54,7 @@
 
           <a href="javascript:history.back('contact.index');">戻る</a>
 
-        
+
       </div>
     </form>
     </div>

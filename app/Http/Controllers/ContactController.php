@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Models\Contact;
+
 
 
 class ContactController extends Controller
@@ -22,11 +24,13 @@ class ContactController extends Controller
         ]);
     }
     public function submit(Request $request){
-        $this->validate($request, Contact::$rules);
+//             Log::debug('ログサンプル', ['memo' => 'sample1']);
+//         $this->validate($request, Contact::$rules);
         $Contact = Contact::find($request->id);
         $form = $request->all();
         unset($form['_token_']);
-        $Contact->fill($form)->save();
+//         $Contact->fill($form)->save();
+//         return redirect(route('contact.thanks'));
         return redirect('/');
     }
     public function delete(Request $request)

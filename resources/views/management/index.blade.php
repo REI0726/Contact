@@ -19,6 +19,5 @@
   </tr>
   @endforeach
 </table>
-@endsection
 </body>
 </html>
