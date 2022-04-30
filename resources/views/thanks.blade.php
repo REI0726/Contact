@@ -9,7 +9,13 @@
   <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}" />
 </head>
 <body>
-<h1>ご意見ありがとうございました。</h1>
-<a href="index.blade.php">戻る</a>
+<div class="container">
+    <div class="card">
+
+      <h1>ご意見ありがとうございました。</h1>
+      <a href="javascript:history.back('contact.index');">ホームへ</a>
+
+  </div>
+</div>
 </body>
 </html>

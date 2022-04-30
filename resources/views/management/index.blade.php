@@ -11,14 +11,38 @@
   <tr>
     <th>管理画面</th>
   </tr>
-  @foreach ($items as $item)
-  <tr>
-    <td>
-      {{$item->getTitle()}}
-    </td>
-  </tr>
+  
+  <form>
+    
+      <table>
+          <tr>
+            <th>名前</th>
+            <th>年齢</th>
+            <th>出身地</th>
+            <th>ご意見</th>
+          </tr>
+          @foreach($items as $item)
+          <tr>
+@csrf
+            <td>
+              {{ $item['name'] }}
+            </td>
+            <td>
+            {{ $item['age'] }}
+            </td>
+            <td>
+              {{ $item['nationality'] }}
+            </td>
+            <td>
+              {{ $item['content'] }}
+            </td>
+            <td>
+              {{ $item['registered_at'] }}
+            </td>
+          </tr>
+         
   @endforeach
 </table>
-@endsection
+
 </body>
 </html>
