@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\AdminContactController;
 
 
 /*
@@ -22,8 +23,10 @@ Route::post('/contact/submit', [ContactController::class, 'submit'])->name('cont
 Route::post('/contact/delete', [ContactController::class, 'delete'])->name('contact.delete');
 
 
-Route::prefix('management')->group(function () {
-  Route::get('/', [ManagementController::class, 'index']);
-  Route::get('/add', [ManagementController::class, 'add']);
-  Route::post('/add', [ManagementController::class, 'create']);
+Route::namespace('Admin')->group(function () {
+    Route::prefix('admin')->group(function () {
+      Route::get('/', [AdminContactController::class, 'index']);
+      Route::get('/add', [AdminContactController::class, 'add']);
+      Route::post('/add', [AdminContactController::class, 'create']);
+    });
 });
