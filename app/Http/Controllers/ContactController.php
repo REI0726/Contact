@@ -11,37 +11,29 @@ class ContactController extends Controller
 {
     public function index(Request $request)
     {
-             Log::debug('ログサンプル', ['memo' => 'sample1']);
-
         $items = Contact::all();
         return view('index', ['item' => $items]);
     }
+
     public function create(Request $request){
         $this->validate($request, Contact::$rules);
         $Contact = new Contact;
         $form = $request->all();
-        return view('create',[
-            'item'=>$form,
-        ]);
+        return view('create',['item'=>$form]);
     }
-    public function submit(Request $request){
-         Log::debug('ログサンプル', ['memo' => 'sample1']);
-           $this->validate($request, Contact::$rules);
 
-        $Contact = Contact::find($request->id);
+    public function submit(Request $request){
+//            $this->validate($request, Contact::$rules);
+
+//         $Contact = Contact::find($request->id);
+        $Contact = new Contact;
         $form = $request->all();
         unset($form['_token_']);
         $Contact->fill($form)->save();
-        return redirect('contact.thanks');
-        return redirect('/');
+        return redirect(route('contact.thanks'));
     }
-    public function delete(Request $request)
-    {
-        Contact::find($request->id)->delete();
-        return redirect('/');
-    }
-    public function management(Request $request){
-        $items = Contact::all();
-        return view('management.index', ['items'=>$items]);
+
+    public function thanks(Request $request){
+        return view('thanks');
     }
 }
