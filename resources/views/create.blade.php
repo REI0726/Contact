@@ -18,11 +18,11 @@
 
           @csrf
   <table>
-    @foreach($items as $item)
+    
           <tr>
             <th>名前</th>
             <td>
-               {{ $item['name'] }} 
+              {{ $item['name'] }} 
               <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['name'] }}">
             </td>
           </tr>
@@ -30,27 +30,31 @@
             <th>年齢</th>
             <td>
             {{ $item['age'] }}
+            <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['age'] }}">
             </td>
           </tr>
           <tr>
             <th>出身国</th>
             <td>
               {{ $item['nationality'] }}
+              <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['nationality'] }}">
             </td>
           </tr>
           <tr>
             <th>ご意見</th>
             <td>
               {{ $item['content'] }}
+              <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['content'] }}">
             </td>
           </tr>
           <tr>
             <th>作成日</th>
             <td>
               {{ $item['registered_at'] }}
+              <input type="hidden" style="width: 200px; height: 20px;"name="name" value="{{ $item['registered_at'] }}">
             </td>
           </tr>
-      @endforeach    
+         
       </table>
           <button type="submit" class="button-submit">送信</button>
 
@@ -63,3 +67,5 @@
   </div>
 </body>
 </html>
+
+<!--forechはitemsで複数の時-->
